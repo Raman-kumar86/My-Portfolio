@@ -4,7 +4,7 @@
   --card: #111827;
   --border: #1e2d47;
   --accent: #38bdf8;
-  --accent2: #818cf8;
+  --accent2: #0ea5e9;
   --text: #e2e8f0;
   --muted: #64748b;
   --green: #34d399;
@@ -38,7 +38,7 @@ body::before {
   background-color: var(--navy);
   background-image:
     radial-gradient(ellipse 80% 60% at 20% 10%, rgba(56,189,248,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(129,140,248,0.07) 0%, transparent 60%);
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(14,165,233,0.07) 0%, transparent 60%);
 }
 
 /* Nav */
@@ -175,9 +175,9 @@ body::before {
 }
 
 .project-sidebar-tab.active {
-  border-color: rgba(129,140,248,0.55);
-  background: rgba(129,140,248,0.08);
-  box-shadow: 0 0 0 1px rgba(129,140,248,0.15), 0 10px 26px rgba(0,0,0,0.22);
+  border-color: rgba(14,165,233,0.55);
+  background: rgba(14,165,233,0.08);
+  box-shadow: 0 0 0 1px rgba(14,165,233,0.15), 0 10px 26px rgba(0,0,0,0.22);
 }
 
 .project-detail-stage {
@@ -236,7 +236,7 @@ body::before {
   padding: 1.75rem 2rem;
   padding-bottom: 2.25rem;   /* extra room so hovered pill borders don't clip */
   width: 100%;
-  box-shadow: 0 0 20px 1px rgba(129,140,248,0.18);
+  box-shadow: 0 0 20px 1px rgba(14,165,233,0.18);
   transition: border-color 0.3s, box-shadow 0.3s;
   overflow: visible;         /* allow pill glow/border to show at card edge */
 }
@@ -244,8 +244,8 @@ body::before {
   .skill-glow-card { width: calc(48% - 0.5rem); }
 }
 .skill-glow-card:hover {
-  border-color: rgba(129,140,248,0.6);
-  box-shadow: 0 0 28px rgba(129,140,248,0.35);
+  border-color: rgba(14,165,233,0.6);
+  box-shadow: 0 0 28px rgba(14,165,233,0.35);
 }
 /* Hidden extra skill cards (shown via Show More) */
 .skill-glow-card.extra-skill {
@@ -311,7 +311,7 @@ body::before {
 .skill-pill span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .skill-pill:hover {
   border-color: var(--accent2);
-  box-shadow: 0 0 10px rgba(129,140,248,0.5);
+  box-shadow: 0 0 10px rgba(14,165,233,0.5);
   color: var(--text);
   transform: scale(1.06);
 }
@@ -333,7 +333,7 @@ body::before {
   padding: 0.65rem;
   background:
     radial-gradient(circle at 30% 30%, rgba(56,189,248,0.22), transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(129,140,248,0.18), transparent 65%),
+    radial-gradient(circle at 70% 70%, rgba(14,165,233,0.18), transparent 65%),
     rgba(17,24,39,0.72);
   border: 1px solid rgba(56,189,248,0.18);
   box-shadow: 0 22px 60px rgba(0,0,0,0.42), 0 0 40px rgba(56,189,248,0.12);
@@ -348,7 +348,7 @@ body::before {
   display: block;
   object-fit: cover;
   border-radius: 9999px;
-  border: 2px solid rgba(129,140,248,0.3);
+  border: 2px solid rgba(14,165,233,0.3);
 }
 
 .hero-profile-photo {
@@ -369,15 +369,14 @@ body::before {
 }
 
 .hero-role-text {
-  display: inline-block;
-  min-width: min(24ch, 100%);
+  display: inline;
 }
 
 .hero-role-cursor {
   display: inline-block;
   width: 2px;
   height: 1.1em;
-  margin-left: 0.2rem;
+  margin-left: 0;
   vertical-align: -0.12em;
   background: var(--accent);
   animation: blink 1s step-end infinite;
@@ -537,6 +536,8 @@ body::before {
 }
 .nav-link:hover { color: var(--accent); }
 .nav-link:hover::after { width: 100%; }
+.nav-link.active { color: var(--accent); }
+.nav-link.active::after { width: 100%; }
 
 /* Hero gradient text */
 .gradient-text {
@@ -563,9 +564,9 @@ body::before {
   transition: border-color 0.35s, transform 0.3s, box-shadow 0.35s;
 }
 .cert-card-v2:hover {
-  border-color: rgba(129,140,248,0.45);
+  border-color: rgba(14,165,233,0.45);
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(129,140,248,0.12);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(14,165,233,0.12);
 }
 .cert-card-v2 .cert-left {
   display: flex;
@@ -582,19 +583,19 @@ body::before {
   font-family: 'DM Mono', monospace;
   font-size: 0.78rem;
   color: var(--accent2);
-  border: 1px solid rgba(129,140,248,0.3);
+  border: 1px solid rgba(14,165,233,0.3);
   border-radius: 0.45rem;
   padding: 0.35rem 0.9rem;
   transition: background 0.25s, border-color 0.25s, color 0.25s;
   text-decoration: none;
 }
 .cert-view-link:hover {
-  background: rgba(129,140,248,0.12);
+  background: rgba(14,165,233,0.12);
   border-color: var(--accent2);
-  color: #a5b4fc;
+  color: #7dd3fc;
 }
 .btn-show-more {
-  background: linear-gradient(135deg, var(--accent2), #6366f1);
+  background: linear-gradient(135deg, var(--accent), #0284c7);
   color: #fff;
   font-family: 'Syne', sans-serif;
   font-weight: 700;
@@ -610,7 +611,7 @@ body::before {
 }
 .btn-show-more:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(129,140,248,0.35);
+  box-shadow: 0 10px 28px rgba(14,165,233,0.35);
   filter: brightness(1.1);
 }
 #cert-toggle-icon {
@@ -641,9 +642,9 @@ body::before {
   transition: border-color 0.35s, transform 0.3s, box-shadow 0.35s;
 }
 .edu-card:hover {
-  border-color: rgba(129,140,248,0.45);
+  border-color: rgba(14,165,233,0.45);
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(129,140,248,0.12);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35), 0 0 0 1px rgba(14,165,233,0.12);
 }
 .edu-left {
   display: flex;
@@ -655,8 +656,8 @@ body::before {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background: rgba(129,140,248,0.1);
-  border: 1px solid rgba(129,140,248,0.2);
+  background: rgba(14,165,233,0.1);
+  border: 1px solid rgba(14,165,233,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -684,8 +685,8 @@ body::before {
   font-family: 'DM Mono', monospace;
   font-size: 0.75rem;
   color: var(--accent2);
-  background: rgba(129,140,248,0.1);
-  border: 1px solid rgba(129,140,248,0.2);
+  background: rgba(14,165,233,0.1);
+  border: 1px solid rgba(14,165,233,0.2);
   border-radius: 0.4rem;
   padding: 0.15rem 0.6rem;
   margin-top: 0.25rem;
