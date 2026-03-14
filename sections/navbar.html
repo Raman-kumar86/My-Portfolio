@@ -1,10 +1,10 @@
 ﻿<!-- NAV -->
-  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50 w-full max-w-full overflow-x-clip">
+    <div class="w-full md:max-w-6xl md:mx-auto px-4 sm:px-6 py-3 sm:py-4 min-h-[60px] sm:min-h-[64px] flex items-center justify-between gap-3">
       <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-3">
-        <span class="mono text-accent font-medium text-sm">raman</span>
-        <span class="mono text-muted text-sm">.dev</span>
+      <a href="#hero" class="flex items-center gap-2 sm:gap-3 min-w-0">
+        <span class="mono text-accent font-medium text-xs sm:text-sm">raman</span>
+        <span class="mono text-muted text-xs sm:text-sm">.dev</span>
       </a>
 
       <!-- Desktop links -->
@@ -23,24 +23,23 @@
       </div>
 
       <!-- Hamburger -->
-      <button id="menu-btn" class="md:hidden text-muted hover:text-accent transition-colors">
+      <button id="menu-btn" class="md:hidden text-muted hover:text-accent transition-colors p-1 flex-shrink-0" aria-label="Toggle mobile menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="flex-col px-6 pb-4 gap-3 border-t border-border" style="border-color:var(--border)">
-      <a href="#about" class="nav-link py-2 block">About</a>
-      <a href="#skills" class="nav-link py-2 block">Skills</a>
-      <a href="#projects" class="nav-link py-2 block">Projects</a>
-      <a href="#certificates" class="nav-link py-2 block">Certificates</a>
-      <a href="#achievements" class="nav-link py-2 block">Achievements</a>
-      <a href="#education" class="nav-link py-2 block">Education</a>
-      <a href="#contact" class="nav-link py-2 block">Contact</a>
+    <div id="mobile-menu" class="flex-col w-full max-w-full overflow-x-hidden px-4 sm:px-6 pb-4 gap-2 border-t border-border" style="border-color:var(--border)">
+      <a href="#about" class="nav-link py-2 block w-full text-[0.72rem] sm:text-xs tracking-[0.03em] leading-tight whitespace-normal break-words">About</a>
+      <a href="#skills" class="nav-link py-2 block w-full text-[0.72rem] sm:text-xs tracking-[0.03em] leading-tight whitespace-normal break-words">Skills</a>
+      <a href="#projects" class="nav-link py-2 block w-full text-[0.72rem] sm:text-xs tracking-[0.03em] leading-tight whitespace-normal break-words">Projects</a>
+      <a href="#certificates" class="nav-link py-2 block w-full text-[0.72rem] sm:text-xs tracking-[0.03em] leading-tight whitespace-normal break-words">Certifications</a>
+      <a href="#achievements" class="nav-link py-2 block w-full text-[0.72rem] sm:text-xs tracking-[0.03em] leading-tight whitespace-normal break-words">Achievements</a>
+      <a href="#education" class="nav-link py-2 block w-full text-[0.72rem] sm:text-xs tracking-[0.03em] leading-tight whitespace-normal break-words">Education</a>
+      <a href="#contact" class="nav-link py-2 block w-full text-[0.72rem] sm:text-xs tracking-[0.03em] leading-tight whitespace-normal break-words">Contact</a>
       <a href="docs/Raman_Kumar_CV.pdf" download class="btn-primary text-xs w-fit mt-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
         Download CV
       </a>
     </div>
   </nav>
-
