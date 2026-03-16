@@ -47,16 +47,74 @@ function toggleSkills() {
   icon.style.transform = isRevealed ? 'rotate(0deg)' : 'rotate(180deg)';
 }
 
-function handleSubmit(e) {
-  e.preventDefault();
-  const success = document.getElementById('form-success');
-  e.target.reset();
-  success.classList.remove('hidden');
-  setTimeout(function () {
-    success.classList.add('hidden');
-  }, 4000);
+const emailConfig = {
+  publicKey: 'v5w6aGa_ZDHq8ZzSI',
+  serviceId: 'service_hgjt7iq',
+  templateId: 'template_sbotun2'
+};
+
+emailjs.init({ publicKey: emailConfig.publicKey });
+
+function setFormStatus(statusElement, message, isSuccess) {
+  if (!statusElement) {
+    return;
+  }
+
+  statusElement.textContent = message;
+  statusElement.classList.remove('hidden');
+  statusElement.style.color = isSuccess ? 'var(--green)' : '#f87171';
 }
 
-window.toggleCerts = toggleCerts;
-window.toggleSkills = toggleSkills;
-window.handleSubmit = handleSubmit;
+async function handleSubmit(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const statusElement = document.getElementById('form-status');
+  const submitButton = form.querySelector('button[type="submit"]');
+  const submitText = submitButton ? submitButton.querySelector('span') : null;
+
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.classList.add('opacity-70', 'cursor-not-allowed');
+  }
+
+  if (submitText) submitText.textContent = 'Sending...';
+  if (statusElement) statusElement.classList.add('hidden');
+
+  try {
+
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      message: document.getElementById('message').value.trim()
+    };
+
+    await emailjs.send(
+      emailConfig.serviceId,
+      emailConfig.templateId,
+      formData
+    );
+
+    form.reset();
+
+    setFormStatus(statusElement,
+      "Message sent successfully. I'll get back to you soon.",
+      true
+    );
+
+  } catch (error) {
+    console.error('Email send failed:', error);
+    setFormStatus(statusElement,
+      'Failed to send message. Please try again.',
+      false
+    );
+  }
+
+  finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+    }
+    if (submitText) submitText.textContent = 'Send Message';
+  }
+}

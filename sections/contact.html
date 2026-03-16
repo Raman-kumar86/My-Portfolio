@@ -53,21 +53,21 @@
           <form id="contact-form" class="space-y-4" onsubmit="handleSubmit(event)">
             <div>
               <label class="mono text-xs mb-2 block" style="color:var(--muted)">name</label>
-              <input type="text" placeholder="Your name" class="form-input" required />
+              <input id="name" type="text" name="name" placeholder="Your name" class="form-input" required />
             </div>
             <div>
               <label class="mono text-xs mb-2 block" style="color:var(--muted)">email</label>
-              <input type="email" placeholder="your@email.com" class="form-input" required />
+              <input id="email" type="email" name="email" placeholder="your@email.com" class="form-input" required />
             </div>
             <div>
               <label class="mono text-xs mb-2 block" style="color:var(--muted)">message</label>
-              <textarea placeholder="Your message..." rows="4" class="form-input resize-none" required></textarea>
+              <textarea id="message" name="message" placeholder="Your message..." rows="4" class="form-input resize-none" required></textarea>
             </div>
             <button type="submit" class="btn-primary w-full justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
-              Send Message
+              <span>Send Message</span>
             </button>
-            <p id="form-success" class="text-sm text-center hidden" style="color:var(--green)">&#10003; Message sent! I'll get back to you soon.</p>
+            <p id="form-status" class="text-sm text-center hidden" aria-live="polite"></p>
           </form>
         </div>
 
