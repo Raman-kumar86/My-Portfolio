@@ -1,22 +1,66 @@
 function toggleCerts() {
-  const extra = document.getElementById('extra-certs');
+  const extraCards = document.querySelectorAll('#certificates .extra-cert');
   const btn = document.getElementById('cert-toggle-btn');
+  const label = document.getElementById('cert-toggle-label');
   const icon = document.getElementById('cert-toggle-icon');
 
-  if (!extra || !btn || !icon) {
+  if (!extraCards.length || !btn || !label || !icon) {
     return;
   }
 
-  const isHidden = extra.style.display === 'none';
-  extra.style.display = isHidden ? 'flex' : 'none';
-  extra.style.flexDirection = 'column';
-  extra.style.gap = '1rem';
-  btn.childNodes[0].textContent = isHidden ? 'Show Less ' : 'Show More ';
-  icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+  const shouldShow = extraCards[0].style.display === 'none';
+  extraCards.forEach(function (card) {
+    card.style.display = shouldShow ? '' : 'none';
+    if (shouldShow) {
+      observeFadeInElements(card);
+      if (card.classList.contains('fade-in') && window.fadeInObserver) {
+        window.fadeInObserver.observe(card);
+      }
+    }
+  });
 
-  if (isHidden) {
-    observeFadeInElements(extra);
+  label.textContent = shouldShow ? 'Show Less' : 'Show More';
+  btn.setAttribute('aria-expanded', shouldShow ? 'true' : 'false');
+  icon.style.transform = shouldShow ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+
+function initCertsToggle() {
+  const certCards = document.querySelectorAll('#certificates .project-card-button');
+  const btn = document.getElementById('cert-toggle-btn');
+  const label = document.getElementById('cert-toggle-label');
+  const icon = document.getElementById('cert-toggle-icon');
+
+  if (!certCards.length || !btn || !label || !icon) {
+    return;
   }
+
+  certCards.forEach(function (card, index) {
+    if (index < 3) {
+      card.style.display = '';
+      card.classList.remove('extra-cert');
+    } else {
+      card.classList.add('extra-cert');
+      card.style.display = 'none';
+    }
+  });
+
+  const hasExtra = certCards.length > 3;
+  btn.style.display = hasExtra ? 'inline-flex' : 'none';
+  label.textContent = 'Show More';
+  btn.setAttribute('aria-expanded', 'false');
+  icon.style.transform = 'rotate(0deg)';
+
+  if (!hasExtra) {
+    return;
+  }
+}
+
+window.initCertsToggle = initCertsToggle;
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCertsToggle);
+} else {
+  initCertsToggle();
 }
 
 function toggleSkills() {

@@ -307,6 +307,9 @@
       if (typeof initHeroRoleTyping === 'function') {
         initHeroRoleTyping();
       }
+      if (typeof initCertsToggle === 'function') {
+        initCertsToggle();
+      }
       initProjectExplorer();
       initSkillTiltEffects();
     } catch (error) {
